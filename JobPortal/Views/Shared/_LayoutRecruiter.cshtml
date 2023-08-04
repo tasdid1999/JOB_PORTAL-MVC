@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - JobPortal</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/JobPortal.styles.css" asp-append-version="true" />
+    <link href = "~/lib/font-awesome/css/all.css" rel = "stylesheet" />
+</head>
+<body class ="bg-clr">
+    <div class = "container-fluid">
+          <header>
+       <nav class="navbar navbar-expand-lg shadow-sm p-2 mb-2 bg-white rounded">
+       <a class="navbar-brand text-clr m-2 border border-dark px-2" href="#">JOB HUNTER</a>
+ 
+ 
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav m-2">
+          <li class="nav-item ">
+        <a class="nav-link text-dark" asp-controller = "Job" asp-action = "GetAllJob">JOBS</a>
+        </li>
+         <li class="nav-item ">
+        <a class="nav-link text-dark" asp-controller = "Recruiter" asp-action = "Index">MY PROFILE</a>
+        </li>
+         <li class="nav-item ">
+        <a class="nav-link text-dark" asp-controller = "Job" asp-action = "AddJob">POST JOB</a>
+        </li>
+         <li class="nav-item ">
+        <a class="nav-link text-dark" asp-controller = "Recruiter" asp-action = "ManageRecruiterJobPost">MANAGE JOB</a>
+        </li>
+       
+    </ul>
+  </div>
+   <div>
+       <i class="fa-solid fa-user"></i>
+       <span class = "text-primary m-1">@ViewBag.UserName</span>
+        <span class = "m-3"></span>
+        <i class="fa-solid fa-lock"></i>
+       <a asp-controller = "Account" asp-action = "Logout" class = "text-decoration-none text-black mt-5">Logout</a>
+       <span class = "m-3"></span>
+   </div>
+      
+</nav>
+    </header>
+    </div>
+  
+ 
+       
+      
+    
+   
+    
+   
+ <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+  
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+   
+</body>
+</html>
+

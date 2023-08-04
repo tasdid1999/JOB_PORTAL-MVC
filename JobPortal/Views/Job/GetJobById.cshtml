@@ -1,0 +1,37 @@
+﻿@model JobPortal.DataAccessLayer.ViewModel.JobView.JobViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class = "container bg-light mt-4 shadow-sm p-3 bg-white rounded">
+    <div class = "row">
+        <h4 class="align-content-center text-capitalize text-capitalize text-success mt-3">@Model.JobTitle</h4>
+        <h3 class="align-content-center text-dark">@Model.CompanyName</h3>
+        <h5 class = "text-dark mt-4" >Vacency</h5>
+        <p class = "text-secondary">@Model.NumberOfVacency</p>
+        <h5 class = "text-dark" >Job Responsibilities</h5>
+        <p class = "text-secondary">@Model.JobResponsibilities</p>
+         <h5 class = "text-dark" >Employee Status</h5>
+        <p class = "text-secondary">@Model.EmployeeStatus</p>
+        <h5 class = "text-dark" >Educational Requirements</h5>
+        <p class = "text-secondary">@Model.EducationalRequirements</p>
+         <h5 class = "text-dark" >Experience Requirements</h5>
+        <p class = "text-secondary">@Model.ExperienceRequirement</p>
+         <h5 class = "text-dark" >Addditional Requirements</h5>
+        <p class = "text-secondary">@Model.AdditionalRequirements</p>
+          <h5 class = "text-dark" >Job Location</h5>
+        <p class = "text-secondary">@Model.JobLocation</p>
+         <h5 class = "text-dark" >Salary</h5>
+        <p class = "text-secondary">@Model.Salary</p>
+          <h5 class = "text-dark" >Compensation & Other Benefits</h5>
+        <p class = "text-secondary">@Model.OthersBenefit</p>
+
+        <div class ="text-center mt-3">
+            @Html.ActionLink("Apply Here","JobApplicationControl","Job", new {Id = @Model.Id,jobTitle = @Model.JobTitle},new {@class = "btn btn-success"});
+        </div>
+       
+
+         
+    </div>
+</div>

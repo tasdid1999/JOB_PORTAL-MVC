@@ -1,0 +1,37 @@
+﻿@model IEnumerable<JobPortal.DataAccessLayer.ViewModel.Application.ApplyViewModel>
+@{
+    Layout = "~/Views/Shared/_LayoutRecruiter.cshtml";
+}
+<div class = "text-center bg-dark text-light py-3 mt-3"><b>List Of Applicant</b></div>
+<div class = "container-fluid card-clr mt-4 shadow-sm p-3 mb-5 bg-white rounded">
+     <table class = "table">
+         <thead class = "action-clr text-light py-2">
+            <tr>
+                <th>Job Title</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Degree</th>
+                <th>Profile</th>
+                <th>CV</th>
+            </tr>
+         </thead>
+         <tbody>
+             @foreach(var applicant in Model)
+             {
+                <tr>
+                    <td>@applicant.JobTitle</td>
+                    <td>@applicant.Name</td>
+                    <td>@applicant.Email</td>                
+                    <td>@applicant.PhoneNumber</td>
+                    <td>@applicant.LastDegree</td>
+                    <td><i>@Html.ActionLink("","GetApplicantProfile","Recruiter", new {id = @applicant.UserId},new {@class = "fa-solid fa-link"})</i></td>
+                    <td><i>@Html.ActionLink("","GetJobById","Job", new {id = @applicant.JobId},new {@class = "fa-solid fa-link"})</i></td>
+                    <td><i><a href = "@applicant.UrlOfCV" class = "fa-solid fa-link"></a></i></td>
+                </tr>
+             }
+
+             
+         </tbody>
+     </table>
+</div>

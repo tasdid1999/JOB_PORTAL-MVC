@@ -1,0 +1,49 @@
+﻿@model IEnumerable<JobPortal.DataAccessLayer.ViewModel.CatagoryView.CatagoryViewModel>
+
+@{
+    ViewData["Title"] = "GetAllCatagory";
+}
+<html>
+    <head>
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+    </head>
+    <body>
+
+        <div class = "container mt-5">
+           
+            <p>
+    <a asp-action="AddCatagory" class = "btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class = "action-clr text-light border-0">
+            <th>
+                @Html.DisplayNameFor(model => model.CatagoryName)
+            </th>
+          <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CatagoryName)
+            </td>
+            <td class="float-end">
+                @Html.ActionLink("X","DeleteCatagory","Catagory" , new {CatagoryId = item.CatagoryId} , new {@class = "btn btn-danger"})
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>
+        </div>
+        
+
+
+    </body>
+   
+
+</html>
+

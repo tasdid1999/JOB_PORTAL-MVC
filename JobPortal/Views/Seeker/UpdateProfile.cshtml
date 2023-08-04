@@ -1,0 +1,76 @@
+﻿@model JobPortal.DataAccessLayer.Entities.SeekerProfile
+@{
+    Layout = "~/Views/Shared/_LayoutJobSeeker.cshtml";
+}
+
+<div class="container-fluid card-clr mt-4 shadow-sm p-3 mb-5 bg-white rounded">
+    @{
+        if(ViewBag.Success)
+        {
+             <div class="alert alert-success w-50 m-auto text-center mb-3" role="alert">
+              Update Job Successfully!
+            </div>
+        }
+
+    }
+              <h4 class = "action-clr text-white text-center py-2">Set Up Your Profile</h4>
+              <h5 class = "text-secondary text-center py-2">Separate Every Line with " | " Sysmbol</h5>
+              <div class = "container w-50">
+
+                  <form asp-action = "UpdateProfile" method = "post" enctype = "multipart/form-data" >
+               <div class="form-group mb-2">
+                              
+                   <input type = "hidden" asp-for="Id" class="form-control" value = "@ViewBag.profileId"/>
+                            
+                 </div>
+                  <div class="form-group mb-2">
+                              
+                   <input type = "hidden" asp-for="UserId" class="form-control" value = "@ViewBag.userId"/>
+                            
+                 </div>
+                 <div class="form-group mb-2">
+                               <label asp-for="Name" class="control-label"></label>
+                                 <input type = "text" asp-for="Name" class="form-control" />
+                              <span asp-validation-for="Name" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                               <label asp-for="Education" class="control-label"></label>
+                                 <input type = "text" asp-for="Education" class="form-control" />
+                              <span asp-validation-for="Education" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                               <label asp-for="Achievements" class="control-label"></label>
+                                 <input type = "text" asp-for="Achievements" class="form-control" />
+                              <span asp-validation-for="Achievements" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                               <label asp-for="skills" class="control-label"></label>
+                                 <input type = "text" asp-for="skills" class="form-control" />
+                              <span asp-validation-for="skills" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                               <label asp-for="PortfolioLink" class="control-label"></label>
+                                 <input type = "text" asp-for="PortfolioLink" class="form-control" />
+                              <span asp-validation-for="PortfolioLink" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                               <label asp-for="GitHubLink" class="control-label"></label>
+                                 <input type = "text" asp-for="GitHubLink" class="form-control" />
+                              <span asp-validation-for="GitHubLink" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                                 <label asp-for="Image">Attach Your Image here</label>
+                                 <input  asp-for="Image" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    
+                
+                  <div class="form-group mb-2 text-center mt-3">
+                         <input type = "submit" value = "Update" class="btn btn-dark"/>
+                 </div>
+           
+              </form>
+              </div>
+       
+       
+    
+</div>

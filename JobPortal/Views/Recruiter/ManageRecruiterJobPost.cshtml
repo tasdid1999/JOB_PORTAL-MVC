@@ -1,0 +1,28 @@
+﻿@model IEnumerable<JobPortal.DataAccessLayer.ViewModel.JobView.JobViewModel>
+@{
+    Layout = "~/Views/Shared/_LayoutRecruiter.cshtml";
+}
+<div class = "text-center bg-dark text-light py-3 mt-3"><b>List Of Job</b></div>
+<div class = "container-fluid card-clr mt-4 shadow-sm p-3 mb-5 bg-white rounded">
+     <table class = "table">
+         <thead class = "action-clr text-light py-2">
+            <tr>
+                <th>Job Title</th>
+                <th>Job Details</th>
+                <th>Job Applicant</th>
+            </tr>
+         </thead>
+         <tbody>
+             @foreach(var job in Model)
+             {
+                <tr>
+                    <td>@job.JobTitle</td>             
+                    <td><i>@Html.ActionLink("","GetJobById","Job", new {id = @job.Id},new {@class = "fa-solid fa-link"})</i></td>
+                    <td><i>@Html.ActionLink("","GetAllApplicantForAJob","Recruiter", new {jobId = @job.Id},new {@class = "fa-solid fa-link"})</i></td>
+                </tr>
+             }
+
+             
+         </tbody>
+     </table>
+</div>

@@ -1,0 +1,82 @@
+﻿@model JobPortal.PresentationLayer.Models.HelperModel.Pagination
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}<div class = "container">
+  <div class = "row mt-3">
+         <div class = "col-7">
+      
+       </div>
+        <div class = "col-5">
+              <form action = "@Url.Action("GetAllJobByTitle","Job")" method = "get" class = "d-inline-flex">
+            <input class="form-control mr-sm-2" name = "title" type="search" placeholder="Job Title" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 m-2" type="submit">Search</button>  
+       </form>
+       </div>
+      
+       </div>
+         <div class = "row mt-3">
+    <div class = "col-3">
+        <div class = "container shadow-sm p-2 m-0 bg-white rounded">
+             <div class = "list-group">
+             <a href="#" class="list-group-item list-group-item-action action-clr text-white "><b>All Catagory</b></a>
+            @foreach(var item in Model.catagoryandjob.catagories)
+            {
+                
+                @Html.ActionLink(@item.CatagoryName,"GetAllJobByCatagory","Job", new {id = @item.CatagoryId},new {@class="list-group-item list-group-item-action"})
+            }
+           </div>
+        </div>
+       </div>
+       <div class = "col-9 px-5 mt-2">
+           @foreach(var item in Model.catagoryandjob.jobs)
+            {
+                 <div class="card w-75 shadow-sm p-2 mb-2 bg-white rounded">
+                   <div class="card-body">
+                     <h4 class="card-title">@item.JobTitle</h4>
+                     <p class="card-text">Company Name :  @item.CompanyName</p>
+                    <p class="card-text text-secondary">Number Of vacency : @item.NumberOfVacency</p>
+                   @Html.ActionLink("","GetJobById","Job", new {id = @item.Id},new {@class = "fa-solid fa-arrow-up-right-from-square"})
+                   
+            </div>
+            </div>
+            }
+        </div>
+    </div>
+    <div class = "row mt-2">
+        @{
+
+
+           
+                if(Model.page == 1)
+                {<div class = "col-2"></div>
+                     <div class = "col-5">
+                    
+                    </div>
+                     <div class = "col-5">
+                         @if(Model.page < Model.totalPage)
+                         {
+                              @Html.ActionLink("next","GetAllJobByCatagory","Job",new {id = Model.CatagoryId, page = Model.page + 1 },new {@class = "btn btn-secondary"})
+                         }
+                        
+                    </div>
+                }
+                else
+                {
+                    <div class = "col-4"></div>
+                     <div class = "col-3">
+                       @Html.ActionLink("prev","GetAllJobByCatagory","Job",new {id = Model.CatagoryId,page = Model.page-1 } ,new {@class = "btn btn-secondary"})
+                     </div>
+                    <div class = "col-5">
+                         @if(Model.page < Model.totalPage)
+                         {
+                              @Html.ActionLink("next","GetAllJobByCatagory","Job",new {id = Model.CatagoryId, page = Model.page + 1 },new {@class = "btn btn-secondary"})
+                         }
+                        
+                    </div>
+                }
+            
+
+           
+        }
+    </div>
+ </div>

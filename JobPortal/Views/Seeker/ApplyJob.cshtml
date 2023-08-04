@@ -1,0 +1,89 @@
+﻿@model JobPortal.DataAccessLayer.ViewModel.Application.ApplyViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutJobSeeker.cshtml";
+}
+
+<div class="container-fluid card-clr mt-4 shadow-sm p-3 mb-5 bg-white rounded">
+    @{
+        if(ViewBag.Success)
+        {
+             <div class="alert alert-success w-50 m-auto text-center mb-3" role="alert">
+              Applied Job Successfully!
+            </div>
+        }
+         if(ViewBag.Failed)
+        {
+             <div class="alert alert-info w-50 m-auto text-center mb-3" role="alert">
+              Already you are applied this job!
+            </div>
+        }
+
+    }
+              <h4 class = "action-clr text-white text-center py-2">Application Form</h4>
+              <div class = "container w-50">
+                  <form asp-action = "ApplyJob" enctype = "multipart/form-data">
+               <div class="form-group mb-2">
+                              
+                   <input type = "hidden" asp-for="JobId" class="form-control" value = "@ViewBag.JobId"/>
+                            
+                 </div>
+                  <div class="form-group mb-2">
+                              
+                   <input type = "hidden" asp-for="JobTitle" class="form-control" value = "@ViewBag.JobTitle"/>
+                            
+                 </div>
+                 <div class="form-group mb-2">
+                               <label asp-for="Name" class="control-label"></label>
+                                 <input type = "text" asp-for="Name" class="form-control" />
+                              <span asp-validation-for="Name" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                               <label asp-for="Email" class="control-label"></label>
+                                 <input type = "email" asp-for="Email" class="form-control" />
+                              <span asp-validation-for="Email" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                               <label asp-for="PhoneNumber" class="control-label"></label>
+                                 <input type = "text" asp-for="PhoneNumber" class="form-control" />
+                              <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                               <label asp-for="LastDegree" class="control-label"></label>
+                                 <input type = "text" asp-for="LastDegree" class="form-control" />
+                              <span asp-validation-for="LastDegree" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                               <label asp-for="Location" class="control-label"></label>
+                                 <input type = "text" asp-for="Location" class="form-control" />
+                              <span asp-validation-for="Location" class="text-danger"></span>
+                 </div>
+                  <div class="form-group mb-2">
+                               <label asp-for="SelfSummary" class="control-label"></label>
+                                 <input type = "text" asp-for="SelfSummary" class="form-control" />
+                              <span asp-validation-for="SelfSummary" class="text-danger"></span>
+                 </div>
+                 
+                     <div class="form-group mb-2">
+                                 <label asp-for="CV">Attach Your CV here</label>
+                                 <input  asp-for="CV" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                
+                  <div class="form-group mb-2 text-center mt-3">
+                         <input type = "submit" value = "Apply" class="btn btn-dark"/>
+                 </div>
+           
+              </form>
+              </div>
+       
+       
+    
+</div>
+         
+      
+    
+
+
+
+
+
+

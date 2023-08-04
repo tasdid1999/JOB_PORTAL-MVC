@@ -1,0 +1,41 @@
+﻿@model JobPortal.DataAccessLayer.ViewModel.CatagoryView.CatagoryViewModel
+
+@{
+    ViewData["Title"] = "AddCatagory";
+}
+<html>
+      <head>
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+             <link rel="stylesheet" href="~/css/site.css" />
+    </head>
+    <body>
+        <div class = "container">
+            <h3 class = "action-clr text-white py-2 text-center mt-3">Set Catagory</h3>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddCatagory">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CatagoryName" class="control-label"></label>
+                <input asp-for="CatagoryName" class="form-control" />
+                <span asp-validation-for="CatagoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary mt-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller = "Catagory" asp-action="GetAllCatagory" class = "btn btn-secondary">Back to List</a>
+</div>
+
+        </div>
+    </body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
